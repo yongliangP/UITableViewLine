@@ -1,5 +1,5 @@
 //
-//  AppDelegate.h
+//  SecondViewController.h
 //  UITableViewLine
 //
 //  Created by yongliangP on 16/6/23.
@@ -8,10 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+@interface SecondViewController : UIViewController
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property(nonatomic,strong)UIView * backView;
 
 @end
-

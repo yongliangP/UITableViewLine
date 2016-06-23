@@ -15,6 +15,9 @@
 		BAF783401D1B949500B4EF04 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BAF7833E1D1B949500B4EF04 /* LaunchScreen.storyboard */; };
 		BAF7834B1D1B949600B4EF04 /* UITableViewLineTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7834A1D1B949600B4EF04 /* UITableViewLineTests.m */; };
 		BAF783561D1B949600B4EF04 /* UITableViewLineUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF783551D1B949600B4EF04 /* UITableViewLineUITests.m */; };
+		BAF783651D1B956900B4EF04 /* UITableView+SeperatorLine.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF783641D1B956900B4EF04 /* UITableView+SeperatorLine.m */; };
+		BAF783681D1B966700B4EF04 /* UIColor+HexString.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF783671D1B966700B4EF04 /* UIColor+HexString.m */; };
+		BAF7836B1D1BA8AC00B4EF04 /* SecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BAF7836A1D1BA8AC00B4EF04 /* SecondViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +54,12 @@
 		BAF783511D1B949600B4EF04 /* UITableViewLineUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UITableViewLineUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BAF783551D1B949600B4EF04 /* UITableViewLineUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UITableViewLineUITests.m; sourceTree = "<group>"; };
 		BAF783571D1B949600B4EF04 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BAF783631D1B956900B4EF04 /* UITableView+SeperatorLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UITableView+SeperatorLine.h"; path = "../UITableView+SeperatorLine.h"; sourceTree = "<group>"; };
+		BAF783641D1B956900B4EF04 /* UITableView+SeperatorLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UITableView+SeperatorLine.m"; path = "../UITableView+SeperatorLine.m"; sourceTree = "<group>"; };
+		BAF783661D1B966700B4EF04 /* UIColor+HexString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "UIColor+HexString.h"; path = "../UIColor+HexString.h"; sourceTree = "<group>"; };
+		BAF783671D1B966700B4EF04 /* UIColor+HexString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "UIColor+HexString.m"; path = "../UIColor+HexString.m"; sourceTree = "<group>"; };
+		BAF783691D1BA8AC00B4EF04 /* SecondViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondViewController.h; sourceTree = "<group>"; };
+		BAF7836A1D1BA8AC00B4EF04 /* SecondViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,10 +110,14 @@
 		BAF7832F1D1B949500B4EF04 /* UITableViewLine */ = {
 			isa = PBXGroup;
 			children = (
+				BAF7836D1D1BBD9300B4EF04 /* Third */,
+				BAF7836C1D1BBC4400B4EF04 /* Category */,
 				BAF783331D1B949500B4EF04 /* AppDelegate.h */,
 				BAF783341D1B949500B4EF04 /* AppDelegate.m */,
 				BAF783361D1B949500B4EF04 /* ViewController.h */,
 				BAF783371D1B949500B4EF04 /* ViewController.m */,
+				BAF783691D1BA8AC00B4EF04 /* SecondViewController.h */,
+				BAF7836A1D1BA8AC00B4EF04 /* SecondViewController.m */,
 				BAF783391D1B949500B4EF04 /* Main.storyboard */,
 				BAF7833C1D1B949500B4EF04 /* Assets.xcassets */,
 				BAF7833E1D1B949500B4EF04 /* LaunchScreen.storyboard */,
@@ -138,6 +151,24 @@
 				BAF783571D1B949600B4EF04 /* Info.plist */,
 			);
 			path = UITableViewLineUITests;
+			sourceTree = "<group>";
+		};
+		BAF7836C1D1BBC4400B4EF04 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				BAF783631D1B956900B4EF04 /* UITableView+SeperatorLine.h */,
+				BAF783641D1B956900B4EF04 /* UITableView+SeperatorLine.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		BAF7836D1D1BBD9300B4EF04 /* Third */ = {
+			isa = PBXGroup;
+			children = (
+				BAF783661D1B966700B4EF04 /* UIColor+HexString.h */,
+				BAF783671D1B966700B4EF04 /* UIColor+HexString.m */,
+			);
+			path = Third;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +301,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BAF7836B1D1BA8AC00B4EF04 /* SecondViewController.m in Sources */,
+				BAF783681D1B966700B4EF04 /* UIColor+HexString.m in Sources */,
 				BAF783381D1B949500B4EF04 /* ViewController.m in Sources */,
 				BAF783351D1B949500B4EF04 /* AppDelegate.m in Sources */,
 				BAF783321D1B949500B4EF04 /* main.m in Sources */,
+				BAF783651D1B956900B4EF04 /* UITableView+SeperatorLine.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
