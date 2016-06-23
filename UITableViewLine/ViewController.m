@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "UITableView+SeperatorLine.h"
+#import "UITableView+YLSeperatorLine.h"
 #import "UIColor+HexString.h"
 #import "SecondViewController.h"
 @interface ViewController ()<UITableViewDelegate>
@@ -51,6 +51,7 @@
 {
     
     NSString * cellName = @"cell";
+    
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellName];
     
     
@@ -63,14 +64,14 @@
     
     cell.textLabel.text = [NSString stringWithFormat:@"cell--%ld",indexPath.row];
     
-
+    cell.backgroundView = nil;
+    
     if (indexPath.row<5)
     {
         
         [tableView addLineforPlainCell:cell forRowAtIndexPath:indexPath withLeftSpace:15.0 withLineColor:[UIColor colorWithHexString:@"#e9ebf2"]];
 
     }
-    
     
     return cell;
     

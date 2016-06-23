@@ -1,5 +1,5 @@
 //
-//  UITableView+SeperatorLine.h
+//  UITableView+YLSeperatorLine.h
 //  UITableViewLine
 //
 //  Created by yongliangP on 16/6/23.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface UITableView (SeperatorLine)
+@interface UITableView (YLSeperatorLine)
 /**
  *  @param cell      需要设置的cell
  *  @param indexPath 划线位置

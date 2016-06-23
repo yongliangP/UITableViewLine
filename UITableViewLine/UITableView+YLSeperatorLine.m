@@ -1,12 +1,12 @@
 //
-//  UITableView+SeperatorLine.m
+//  UITableView+YLSeperatorLine.m
 //  UITableViewLine
 //
 //  Created by yongliangP on 16/6/23.
 //  Copyright © 2016年 yongliangP. All rights reserved.
 //
 
-#import "UITableView+SeperatorLine.h"
+#import "UITableView+YLSeperatorLine.h"
 #import "UIColor+HexString.h"
 #import <objc/runtime.h>
 
@@ -14,7 +14,7 @@
 
 NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
 
-@implementation UITableView (SeperatorLine)
+@implementation UITableView (YLSeperatorLine)
 
 #if 0
 -(UIColor *)lineColor
@@ -33,7 +33,9 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
 
 #endif
 
-- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace hasSectionLine:(BOOL)hasSectionLine{
+- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace hasSectionLine:(BOOL)hasSectionLine
+{
+        
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     
     CGMutablePathRef pathRef = CGPathCreateMutable();
@@ -54,15 +56,18 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
     if (cell.backgroundColor)
     {
         layer.fillColor = cell.backgroundColor.CGColor;//layer的填充色用cell原本的颜色
-    }else if (cell.backgroundView && cell.backgroundView.backgroundColor){
+    }else if (cell.backgroundView && cell.backgroundView.backgroundColor)
+    {
         layer.fillColor = cell.backgroundView.backgroundColor.CGColor;
-    }else{
+    }else
+    {
         layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
     }
     
     CGColorRef lineColor = [UIColor colorWithHexString:@"0xdddddd"].CGColor;
     
     CGColorRef sectionLineColor = lineColor;
+    
     if (indexPath.row == 0 && indexPath.row == [self numberOfRowsInSection:indexPath.section]-1)
     {
         //只有一个cell。加上长线&下长线
@@ -79,7 +84,8 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
             [self layer:layer addLineUp:YES andLong:YES andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
         }
         [self layer:layer addLineUp:NO andLong:NO andColor:lineColor andBounds:bounds withLeftSpace:leftSpace];
-    } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section]-1) {
+    } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section]-1)
+    {
         //最后一个cell。加下长线
         if (hasSectionLine)
         {
@@ -94,19 +100,24 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
     [testView.layer insertSublayer:layer atIndex:0];
     cell.backgroundView = testView;
 }
-- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace{
+- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace
+{
     [self addLineforPlainCell:cell forRowAtIndexPath:indexPath withLeftSpace:leftSpace hasSectionLine:YES];
 }
 
 
 
-- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace withLineColor:(UIColor*)lineColor{
+- (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace withLineColor:(UIColor*)lineColor
+{
     [self addLineforPlainCell:cell forRowAtIndexPath:indexPath withLeftSpace:leftSpace hasSectionLine:YES withLineColor:lineColor];
 }
 
 
 - (void)addLineforPlainCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath withLeftSpace:(CGFloat)leftSpace hasSectionLine:(BOOL)hasSectionLine withLineColor:(UIColor*)lineColor
 {
+    
+    NSLog(@"%ld---%ld",cell.backgroundView.subviews.count,cell.backgroundView.layer.sublayers.count);
+    
     CAShapeLayer *layer = [[CAShapeLayer alloc] init];
     
     CGMutablePathRef pathRef = CGPathCreateMutable();
@@ -128,47 +139,50 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
     if (cell.backgroundColor)
     {
         layer.fillColor = cell.backgroundColor.CGColor;//layer的填充色用cell原本的颜色
-    }else if (cell.backgroundView && cell.backgroundView.backgroundColor){
+    }else if (cell.backgroundView && cell.backgroundView.backgroundColor)
+    {
         layer.fillColor = cell.backgroundView.backgroundColor.CGColor;
-    }else{
+    }else
+    {
         layer.fillColor = [UIColor colorWithWhite:1.f alpha:0.8f].CGColor;
     }
     
-    //CGColorRef lineColor = [UIColor colorWithHexString:@"0xdddddd"].CGColor;
-    
-    // CGColorRef lineColor = [UIColor colorWithHexString:@"#55616a"].CGColor;
-    
     CGColorRef sectionLineColor = lineColor.CGColor;
     
-    //    CGColorRef lineColor = [UIColor colorWithHexString:@"0xdddddd"].CGColor;
-    //    CGColorRef sectionLineColor = self.separatorColor.CGColor;
-    
-    if (indexPath.row == 0 && indexPath.row == [self numberOfRowsInSection:indexPath.section]-1) {
+    if (indexPath.row == 0 && indexPath.row == [self numberOfRowsInSection:indexPath.section]-1)
+    {
         //只有一个cell。加上长线&下长线
-        if (hasSectionLine) {
+        if (hasSectionLine)
+        {
             [self layer:layer addLineUp:YES andLong:YES andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
             [self layer:layer addLineUp:NO andLong:NO andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
         }
-    } else if (indexPath.row == 0) {
+    } else if (indexPath.row == 0)
+    {
         //第一个cell。加上长线&下短线
-        if (hasSectionLine) {
+        if (hasSectionLine)
+        {
             [self layer:layer addLineUp:YES andLong:NO andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
         }
         [self layer:layer addLineUp:NO andLong:NO andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
-    } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section]-1) {
+    } else if (indexPath.row == [self numberOfRowsInSection:indexPath.section]-1)
+    {
         //最后一个cell。加下长线
-        if (hasSectionLine) {
+        if (hasSectionLine)
+        {
             [self layer:layer addLineUp:NO andLong:NO andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
         }
-    } else {
+    } else
+    {
         //中间的cell。只加下短线
         [self layer:layer addLineUp:NO andLong:NO andColor:sectionLineColor andBounds:bounds withLeftSpace:leftSpace];
     }
+    
     UIView *testView = [[UIView alloc] initWithFrame:bounds];
+    
     [testView.layer insertSublayer:layer atIndex:0];
+    
     cell.backgroundView = testView;
-    
-    
     
 }
 
@@ -177,15 +191,19 @@ NSString const *TableView_lineColorKey = @"TableView_lineColorKey";
     CALayer *lineLayer = [[CALayer alloc] init];
     CGFloat lineHeight = (1.0f / [UIScreen mainScreen].scale);
     CGFloat left, top;
-    if (isUp) {
+    if (isUp)
+    {
         top = 0;
-    }else{
+    }else
+    {
         top = bounds.size.height-lineHeight;
     }
     
-    if (isLong) {
+    if (isLong)
+    {
         left = 0;
-    }else{
+    }else
+    {
         left = leftSpace;
     }
     lineLayer.frame = CGRectMake(CGRectGetMinX(bounds)+left, top, CGRectGetWidth(self.frame)-2*left, lineHeight);
